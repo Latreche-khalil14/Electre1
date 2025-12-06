@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Système de décision — ELECTRE I</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <header class="header">
+        <h1>Système d'aide à la décision — ELECTRE I</h1>
+        <p>Entrez le nombre de critères et d'actions puis remplissez les valeurs et les poids.</p>
+    </header>
+
+   
+    <div class="card inputs-card">
+        <div class="input-group">
+            <label>Nombre de critères</label>
+            <input type="number" id="txtCriteria" min="1" value="2" class="input-field">
+        </div>
+        <div class="input-group">
+            <label>Nombre d'actions</label>
+            <input type="number" id="txtActions" min="1" value="2" class="input-field">
+        </div>
+        <button id="btnCreate" class="btn btn-primary">Créer la matrice</button>
+    </div>
+
+    <!-- Matrice et Seuils + Buttons -->
+    <div id="matrixAndThresholds" class="card horizontal-card hidden">
+
+        <!-- Left Panel: Seuils + Buttons -->
+        <div class="left-panel">
+            <div class="thresholds">
+                <div>
+                    <label>Seuil C</label>
+                    <input type="number" step="0.1" min="0" max="1" id="txtCSeuil" value="0.6" class="input-field">
+                </div>
+                <div>
+                    <label>Seuil D</label>
+                    <input type="number" step="0.1" min="0" max="1" id="txtDSeuil" value="0.3" class="input-field">
+                </div>
+            </div>
+            <div class="buttons">
+                <button id="btnCompute" class="btn btn-primary">Calculer C/D</button>
+                <button id="btnCompare" class="btn btn-primary">Comparer (Surclassements)</button>
+                <button id="btnReset" class="btn btn-danger">Réinitialiser</button>
+            </div>
+        </div>
+
+        <!-- Right Panel: Matrice + Résultats -->
+        <div class="right-panel">
+            <div id="matrixCard" class="card hidden">
+                <h2>Matrice de performance (dernière ligne = poids)</h2>
+                <div id="matrixContainer" class="matrix-container"></div>
+            </div>
+
+            <div id="resultsCard" class="card hidden">
+                <h2>Résultats</h2>
+                <div id="resultsContainer" class="matrix-container"></div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
